@@ -1,0 +1,10 @@
+name: AntiZombify
+version: 1.0.0
+main: me.rowsell.antizombify.AntiZombify
+description: No more zombie piglins!
+author: Rowsell
+commands:
+  azreload:
+    description: Reload plugin config.
+    usage: /<command>
+    permission: antizombify.reload
