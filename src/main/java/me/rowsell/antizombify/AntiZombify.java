@@ -5,6 +5,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Hoglin;
 import org.bukkit.entity.PiglinAbstract;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -34,7 +35,7 @@ public class AntiZombify extends JavaPlugin implements Listener, CommandExecutor
 
     @EventHandler
     public void onEntitySpawn(EntitySpawnEvent event) {
-        if(event.getEntityType() == EntityType.PIGLIN || event.getEntityType() == EntityType.PIGLIN_BRUTE) {
+        if(event.getEntityType() == EntityType.PIGLIN || event.getEntityType() == EntityType.PIGLIN_BRUTE || event.getEntityType() == EntityType.HOGLIN) {
             boolean inDisabledWorld = false;
             for (String s : this.getConfig().getStringList("Disabled Worlds")) {
                 if (event.getLocation().getWorld().getName().equals(s)) {
@@ -43,8 +44,13 @@ public class AntiZombify extends JavaPlugin implements Listener, CommandExecutor
                 }
             }
             if (!inDisabledWorld) {
-                PiglinAbstract piglin = (PiglinAbstract) event.getEntity();
-                piglin.setImmuneToZombification(true);
+                if (event.getEntityType() == EntityType.HOGLIN) {
+                    Hoglin hoglin = (Hoglin) event.getEntity();
+                    hoglin.setImmuneToZombification(true);
+                } else {
+                    PiglinAbstract piglin = (PiglinAbstract) event.getEntity();
+                    piglin.setImmuneToZombification(true);
+                }
             }
         }
     }

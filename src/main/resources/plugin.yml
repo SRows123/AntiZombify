@@ -1,7 +1,7 @@
 name: AntiZombify
-version: 1.0.0
+version: 1.0.1
 main: me.rowsell.antizombify.AntiZombify
-description: No more zombie piglins!
+description: No more zombie piglins or hoglins!
 author: Rowsell
 commands:
   azreload:

@@ -1,6 +1,6 @@
-A Spigot plugin to prevent Piglins & Piglin Brutes transforming into Zombie Piglins.
+A Spigot plugin to prevent Piglins, Piglin Brutes & Hoglins transforming into Zombie Piglins.
 
-For Minecraft 1.20.4
+For Minecraft 1.20.*
 
 Commands:
 
